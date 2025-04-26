@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/v1/payments";
+const API_URL = "https://backend-johh.onrender.com/api/v1/payments";
 
 export const createPaymentIntentAPI = async (paymentData) => {
   try {

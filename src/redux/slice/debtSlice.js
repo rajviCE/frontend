@@ -5,7 +5,7 @@ import axios from "axios";
 export const fetchDebt = createAsyncThunk("debt/fetchDebt", async (_, { rejectWithValue }) => {
   try {
     const token = localStorage.getItem("token");
-    const response = await axios.get("http://localhost:5000/api/debt/get", {
+    const response = await axios.get("https://backend-johh.onrender.com/api/debt/get", {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
@@ -19,7 +19,7 @@ export const addDebt = createAsyncThunk("debt/addDebt", async ({ amount,loanPurp
   try {
     const token = localStorage.getItem("token");
     const response = await axios.post(
-      "http://localhost:5000/api/debt/add",
+      "https://backend-johh.onrender.com/api/debt/add",
       { amount,loanPurpose, interestRate, monthlyEMI },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -34,7 +34,7 @@ export const payEMI = createAsyncThunk("debt/payEMI", async ({ debtId,amount}, {
   try {
     const token = localStorage.getItem("token");
     const response = await axios.post(
-      "http://localhost:5000/api/debt/pay",
+      "https://backend-johh.onrender.com/api/debt/pay",
       { debtId, amount },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -47,7 +47,7 @@ export const payEMI = createAsyncThunk("debt/payEMI", async ({ debtId,amount}, {
 export const deleteDebt = createAsyncThunk("debt/deleteDebt", async (debtId, { rejectWithValue }) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/debt/delete/${debtId}`, {
+      await axios.delete(`https://backend-johh.onrender.com/api/debt/delete/${debtId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       return debtId; // Returning the ID so we can remove it from the Redux store

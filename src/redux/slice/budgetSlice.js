@@ -125,7 +125,7 @@ export const setBudget = createAsyncThunk(
       };
 
       const response = await axios.post(
-        "http://localhost:5000/api/budgets/create",
+        "https://backend-johh.onrender.com/api/budgets/create",
         { month, allocatedBudget },
         config
       );
@@ -154,7 +154,7 @@ export const updateBudget = createAsyncThunk(
       };
 
       const response = await axios.put(
-        "http://localhost:5000/api/budgets/update",
+        "https://backend-johh.onrender.com/api/budgets/update",
         { month, amount: allocatedBudget},
         config
       );

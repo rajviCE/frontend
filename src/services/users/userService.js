@@ -98,7 +98,7 @@ export const getUserDetailsAPI = async (token) => {
 
 export const updateProfilePicAPI = async (formData, token) => {
   try {
-    const response = await axios.put("http://localhost:5000/upload-profile-pic", formData, {
+    const response = await axios.put("https://backend-johh.onrender.com/upload-profile-pic", formData, {
       headers: {
         "Content-Type": "multipart/form-data", // Ensure this header for file upload
         Authorization: `Bearer ${token}`,     // Pass the token in the Authorization header

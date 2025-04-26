@@ -13,7 +13,7 @@ const userSlice = createSlice({
     setUser: (state, action) => {
       state.user = action.payload; // Full user object
       if (action.payload?.profilePic) {
-        state.profilePic = `http://localhost:5000${action.payload.profilePic}`;
+        state.profilePic = `https://backend-johh.onrender.com${action.payload.profilePic}`;
       }
     },
   },

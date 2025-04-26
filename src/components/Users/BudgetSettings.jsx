@@ -4,13 +4,13 @@ const BudgetSettings = ({ userId }) => {
     const [allocationPreference, setAllocationPreference] = useState("next_month");
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/user/${userId}`)
+        fetch(`https://backend-johh.onrender.com/api/user/${userId}`)
             .then(res => res.json())
             .then(data => setAllocationPreference(data.allocationPreference || "next_month"));
     }, [userId]);
 
     const handleSave = async () => {
-        const response = await fetch(`http://localhost:5000/api/user/${userId}/allocation-preference`, {
+        const response = await fetch(`https://backend-johh.onrender.com/api/user/${userId}/allocation-preference`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ allocationPreference }),

@@ -137,7 +137,7 @@ const FamilyGoals = ({ familyId, userId }) => {
 
   const fetchGoals = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/family-goals/${familyId}`);
+      const response = await axios.get(`https://backend-johh.onrender.com/api/family-goals/${familyId}`);
       console.log("API Response:", response.data);
 
       const today = new Date();
@@ -155,7 +155,7 @@ const FamilyGoals = ({ familyId, userId }) => {
 
   const joinChallenge = async (goalId) => {
     try {
-      await axios.put(`http://localhost:5000/api/family-goals/${goalId}/join`, { userId });
+      await axios.put(`https://backend-johh.onrender.com/api/family-goals/${goalId}/join`, { userId });
       fetchGoals();
     } catch (error) {
       console.error("Error joining challenge:", error);
@@ -171,7 +171,7 @@ const FamilyGoals = ({ familyId, userId }) => {
     }
 
     try {
-      await axios.put(`http://localhost:5000/api/family-goals/${goalId}/contribute`, {
+      await axios.put(`https://backend-johh.onrender.com/api/family-goals/${goalId}/contribute`, {
         userId,
         amount: contributionAmount,
       });

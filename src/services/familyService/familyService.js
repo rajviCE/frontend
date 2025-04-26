@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://backend-johh.onrender.com";
 
 export const createFamily = async (familyName, adminId) => {
     return axios.post(`${API_URL}/create`, { familyName, adminId });
@@ -34,7 +34,7 @@ export const assignRole = async (familyId, adminId, userId, role) => {
 export const getFamilyDetails = async (familyId) => {
   try {
       console.log(`Fetching family details for ID: ${familyId}`); // Debugging  
-      const response = await axios.get(`http://localhost:5000/${familyId}`);
+      const response = await axios.get(`https://backend-johh.onrender.com/${familyId}`);
       console.log("API Response:", response.data); // Debugging  
       return response.data;  
   } catch (error) {

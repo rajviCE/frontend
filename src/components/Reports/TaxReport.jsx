@@ -20,7 +20,7 @@ const handleDownloadReport = async () => {
         // ✅ Open new tab early to avoid browser blocking
         const newTab = window.open("", "_blank");
 
-        const response = await axios.get(`http://localhost:5000/api/reports/generate/${userId}/${currentYear}`, {
+        const response = await axios.get(`https://backend-johh.onrender.com/api/reports/generate/${userId}/${currentYear}`, {
             responseType: "blob", // Ensure correct file handling
             headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });

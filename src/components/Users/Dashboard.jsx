@@ -193,7 +193,7 @@ const Dashboard = () =>
       try {
         if (user && user.id) {
           const response = await axios.get(
-            `http://localhost:8000/api/budgets/lists?month=${currentMonth}`,
+            `https://backend-johh.onrender.com/api/budgets/lists?month=${currentMonth}`,
             { headers: { Authorization: `Bearer ${user.token}` } }
           );
           setLeftoverAmount(response.data.leftoverAmount);
@@ -220,7 +220,7 @@ const Dashboard = () =>
 
     try {
         const response = await axios.put(
-            `http://localhost:8000/api/budgets/update`,
+            `https://backend-johh.onrender.com/api/budgets/update`,
             { amount: newBudget, month: currentMonth },
             { headers: { Authorization: `Bearer ${user.token}` } }
         );
@@ -240,7 +240,7 @@ const Dashboard = () =>
         useEffect(() => {
           const fetchFamilyExpenses = async () => {
             try {
-              const response = await axios.get("http://localhost:8000/family/family-expenses", {
+              const response = await axios.get("https://backend-johh.onrender.com/family/family-expenses", {
                 headers: { Authorization: `Bearer ${user.token}` },
               });
               setFamilyExpenses(response.data);

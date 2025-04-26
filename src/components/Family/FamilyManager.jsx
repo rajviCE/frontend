@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateUser } from "../../redux/slice/authSlice";
 import axios from "axios";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://backend-johh.onrender.com";
 
 const FamilyManager = () => {
     const user = useSelector(state => state.auth.user);

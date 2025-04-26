@@ -1,7 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "../../utils/url";
 import { getUserFromStorage } from "../../utils/getUserFromStorage";
-const API_BASE_URL = "http://localhost:5000/api/v1/transactions"; // Adjust your backend API URL if needed
+const API_BASE_URL = "https://backend-johh.onrender.com/api/v1/transactions"; // Adjust your backend API URL if needed
 //! Get the token
 const token = getUserFromStorage();
 //! Add

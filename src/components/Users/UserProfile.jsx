@@ -35,7 +35,7 @@ const UserProfile = ({ userId }) => {
         .then((res) => {
           dispatch(updateUser(res.user));
           if (res.user?.profilePic) {
-            const imgUrl = `http://localhost:5000${res.user.profilePic}`;
+            const imgUrl = `https://backend-johh.onrender.com${res.user.profilePic}`;
             dispatch(setProfilePic(imgUrl));
             setProfilePicState(imgUrl);
             localStorage.setItem("profilePic", imgUrl);
@@ -77,7 +77,7 @@ const UserProfile = ({ userId }) => {
     if (storedProfilePic) {
       setProfilePicState(storedProfilePic);
     } else if (userPreference?.profilePic) {
-      const imageUrl = `http://localhost:5000${userPreference.profilePic}`;
+      const imageUrl = `https://backend-johh.onrender.com${userPreference.profilePic}`;
       setProfilePicState(imageUrl);
       localStorage.setItem("profilePic", imageUrl);
     }
@@ -123,7 +123,7 @@ const UserProfile = ({ userId }) => {
     mutationFn: (formData) => updateProfilePicAPI(formData, token),
     onSuccess: (response) => {
       if (response?.profilePic) {
-        const imageUrl = `http://localhost:5000${response.profilePic}`;
+        const imageUrl = `https://backend-johh.onrender.com${response.profilePic}`;
         dispatch(setProfilePic(imageUrl));
         setProfilePicState(imageUrl);
         localStorage.setItem("profilePic", imageUrl);

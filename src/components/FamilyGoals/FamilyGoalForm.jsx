@@ -33,7 +33,7 @@ const CreateFamilyGoal = () => {
       }
 
       try {
-        const response = await axios.get("http://localhost:5000/api/v1/users/profile", {
+        const response = await axios.get("https://backend-johh.onrender.com/api/v1/users/profile", {
           headers: { Authorization: `Bearer ${token}` }, // Attach token here
         });
 
@@ -71,7 +71,7 @@ const CreateFamilyGoal = () => {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/family-goals/",
+        "https://backend-johh.onrender.com/api/family-goals/",
         { ...formData, familyId },
         { headers: { Authorization: `Bearer ${token}` } } // Include token here
       );

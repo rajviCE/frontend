@@ -18,7 +18,10 @@ export default function CheckoutForm() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [location, setLocation] = useState({ place: "", latitude: "", longitude: "" });
 
-  const MAPBOX_API_KEY = "pk.eyJ1IjoicmFqdmllciIsImEiOiJjbTgzODZsdmIxMmszMmpxcjc2ZjVsY3dhIn0.b7oNKJ3tVaURR6FrCy7ICA";
+  const VITE_STRIPE_PUBLISHABLE_KEY = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY;
+  const VITE_GEOAPI_KEY = import.meta.env.VITE_GEOAPI_KEY;
+  const MAPBOX_API_KEY = import.meta.env.VITE_MAPBOX_API_KEY;
+  
 
   useEffect(() => {
     if (navigator.geolocation) {

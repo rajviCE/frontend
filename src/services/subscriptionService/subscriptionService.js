@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/subscriptions"; // Adjust if needed
+const API_URL = "https://backend-johh.onrender.com/api/subscriptions"; // Adjust if needed
 
 export const addSubscription = async (token, subscriptionData) => {
   return axios.post(`${API_URL}/add`, subscriptionData, {
