@@ -1,12 +1,10 @@
 import { Fragment, useState, useEffect } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Disclosure } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon, SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { IoLogOutOutline } from "react-icons/io5";
-import { SiAuthy } from "react-icons/si";
 import { logoutAction } from "../../redux/slice/authSlice";
-import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -38,7 +36,7 @@ export default function PrivateNavbar() {
   const navItems = [
     { name: "Dashboard", to: "/dashboard" },
     { name: "Add Transaction", to: "/add-transaction" },
-    { name: "Add Purchase", to:"/add-purchase"},
+    { name: "Add Purchase", to: "/add-purchase" },
     { name: "Add Category", to: "/add-category" },
     { name: "Categories", to: "/categories" },
     { name: "Profile", to: "/profile" },
@@ -57,10 +55,12 @@ export default function PrivateNavbar() {
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 justify-between items-center">
+              {/* Left: Logo and Nav Links */}
               <div className="flex items-center w-full">
                 <div className="flex-shrink-0 text-green-500">
-                <img className="h-10 w-auto" src="/Expenza.png" alt="Expenza Logo"/>
+                  <img className="h-10 w-auto" src="/Expenza.png" alt="Expenza Logo" />
                 </div>
+                {/* Desktop Menu */}
                 <div className="hidden md:flex md:space-x-4 ml-6 w-full items-center">
                   {navItems.map((item) => (
                     <Link
@@ -79,10 +79,20 @@ export default function PrivateNavbar() {
                 </div>
               </div>
 
-              {/* Right buttons */}
+              {/* Right: Hamburger + Logout */}
               <div className="flex items-center gap-2">
+                {/* Mobile Hamburger Menu */}
+                <div className="flex items-center md:hidden">
+                  <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 dark:hover:bg-gray-700">
+                    {open ? (
+                      <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    ) : (
+                      <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    )}
+                  </Disclosure.Button>
+                </div>
 
-                {/* Logout */}
+                {/* Logout Button */}
                 <button
                   onClick={logoutHandler}
                   className="inline-flex items-center gap-1.5 rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-700"
@@ -95,7 +105,7 @@ export default function PrivateNavbar() {
           </div>
 
           {/* Mobile Menu */}
-          <Disclosure.Panel className="md:hidden bg-white dark:bg-gray-800">
+          <Disclosure.Panel className="md:hidden bg-white dark:bg-gray-800 max-h-[80vh] overflow-y-auto">
             <div className="space-y-1 px-2 pt-2 pb-3">
               {navItems.map((item) => (
                 <Link key={item.to} to={item.to}>
