@@ -390,12 +390,7 @@ const Dashboard = () =>
                 <p><strong>Monthly EMI:</strong> ₹{debt.monthlyEMI}</p>
                 </div>
                 <div className="space-x-2">
-                  <button
-                    onClick={() => handlePayEMI(debt._id)}
-                    className="px-4 py-2 bg-green-500 text-white rounded-md"
-                  >
-                    Pay EMI
-                  </button>
+                  
                   <button
                   
                     onClick={() => handleDeleteDebt(debt._id)}
